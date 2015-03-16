@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <script src="underscore-min.js"></script>
+  <script src="auto-bp.js"></script>
+  <script>
+    bp._scripts.addMany([{"id":"angular","src":"/build/angular.js"},{"src":"app.js"}]);
+  </script>
+</head>
+<body id="benchmarkContainer">
+
+<div ng-app="ngOptionsBenchmark" ng-cloak>
+  <div ng-controller="DataController">
+    <div class="container-fluid">
+      <p>
+        Tests the execution of ng-options for rendering during model and option updates.
+      </p>
+      <select ng-model="x" ng-options="a as a.label group by a.group for a in items track by a.id"></select>
+    </div>
+  </div>
+</div>
+
+<script>
+  bp.doc.loadNextScript();
+</script>
+</body>
+</html>
